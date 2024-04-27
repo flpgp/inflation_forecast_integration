@@ -1,0 +1,2 @@
+,lags,params,mean_squared_error,learning_rate,max_depth,n_estimators
+90,[1 2],"{'learning_rate': 0.1, 'max_depth': 10, 'n_estimators': 150}",0.007926969128043167,0.1,10.0,150.0

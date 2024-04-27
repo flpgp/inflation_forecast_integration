@@ -1,0 +1,2 @@
+,lags,params,mean_squared_error,learning_rate,loss,n_estimators
+214,[1 2 3 4 5 6],"{'learning_rate': 0.1, 'loss': 'exponential', 'n_estimators': 150}",0.00870500191678192,0.1,exponential,150
