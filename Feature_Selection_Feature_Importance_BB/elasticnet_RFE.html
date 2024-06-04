@@ -7516,7 +7516,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Identificando-import%C3%A2ncia-e-explicando-a-influ%C3%AAncia-nos-resutaldos-das-vari%C3%A1veis-nos-modelos-de-curto-prazo-do-IPCA">Identificando importância e explicando a influência nos resutaldos das variáveis nos modelos de curto prazo do IPCA<a class="anchor-link" href="#Identificando-import%C3%A2ncia-e-explicando-a-influ%C3%AAncia-nos-resutaldos-das-vari%C3%A1veis-nos-modelos-de-curto-prazo-do-IPCA">¶</a></h1>
+<h1 id="Sele%C3%A7%C3%A3o-e-explicabilidade-de-vari%C3%A1veis-nos-modelos-de-curto-prazo-do-IPCA">Seleção e explicabilidade de variáveis nos modelos de curto prazo do IPCA<a class="anchor-link" href="#Sele%C3%A7%C3%A3o-e-explicabilidade-de-vari%C3%A1veis-nos-modelos-de-curto-prazo-do-IPCA">¶</a></h1>
 </div>
 </div>
 </div>
@@ -7528,8 +7528,8 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Objetivos-e-motiva%C3%A7%C3%A3o">Objetivos e motivação<a class="anchor-link" href="#Objetivos-e-motiva%C3%A7%C3%A3o">¶</a></h2><p>Com o objetivo de aperfeiçoar o método desenvolvido em março para identificar a importância de variáveis (Feature Importance) e selecionar as mais relevantes (Feature Selection) para compor os modelos de curto prazo da GEASE e atender o pedido do executivo da área de executar testes com retiradas de variáveis para verificar performance dos modelos, foi criada essa NOVA metodologia.</p>
-<p>O método aqui exposto ainda usa o modelo de Regressão com penalização (Shrinkage Regression) para seleção de variáveis, que serão usadas nos modelos não-lineares de árvore de decisão (Adaboost, Gradient Boosting e Random Forest). Todavia, a nova abordagem aplica o algoritmo de Recursive Feature Elimination (RFE) com um loop adaptado para executá-lo interativamente por todo o período da amostra. Como modelo de Regressão com penalização, ainda seguimos usado o ElasticNET como opção base do algoritmo de RFE.</p>
-<p>Além disso, também foi incorporado método agnóstico de inteligência artificial explicável (XAI) chamado de Shapely Value, baseado na teoria dos jogos cooperativos, para explicar as influências das variáveis nos resutados de previsão dos modelos não lineares (AdaBoost, Gradient Boosting e Random Forest) usados para fazer as previsões na GEASE do IPCA de curto prazo. Em cada etapa explicamos os conceitos aqui mencionados para esclrecimento dos leitores.</p>
+<p>O método aqui exposto ainda usa o modelo de Regressão com penalização (Shrinkage Regression) para seleção de variáveis, a serem aplicada nos modelos não-lineares de árvore de decisão (Adaboost, Gradient Boosting e Random Forest). Todavia, a nova abordagem aplica o algoritmo de Recursive Feature Elimination (RFE) com um loop adaptado para executá-lo interativamente por todo o período da amostra. Como modelo de Regressão com penalização, ainda seguimos usado o ElasticNET como base do algoritmo de RFE.</p>
+<p>Além disso, também foi incorporado método de explicabilidade de inteligência artificial indepedente de modelo (XAI) chamado de Shapely Value, baseado na teoria dos jogos cooperativos, para explicar as influências das variáveis nos resutados de previsão do modelo não linear vencedor. Os modelos não lineares são aqueles que de fato fazem as previsões na GEASE do IPCA de curto prazo. Em cada etapa explicamos os conceitos aqui mencionados para esclarecimento dos leitores.</p>
 </div>
 </div>
 </div>
@@ -7552,7 +7552,7 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>Embora técnicas de redução, como ElasticNet, sejam frequentemente usadas para selecionar variáveis, é importante observar que as variáveis ​​selecionadas por meio desse método podem variar ao longo do tempo e entre diferentes amostras de dados. Em outras palavras, o número de variáveis ​​escolhidas e a significância atribuída a cada uma delas (medida pelos seus coeficientes) sofre alteração quando se trata de dados de séries temporais. Para abordar esta variabilidade e garantir a identificação de variáveis ​​consistentemente cruciais em múltiplas interações, optamos por criar um método que identificasse as variáveis mais frequentes ​​e influentes (maior coeficiente médio) ao longo do tempo na etapa de seleção de variáveis (Feature Selection).</p>
-<p>Além disso, é crucial identificar como a retirada e inserção de variáveis nos modelos afetam a performance do modelos não lineares que são de fato usados para as projeções mensais na GEASE. Nesse sentido, o método de explicabilidade de inteligência artificial independete de modelo chamado Shapley Value atende essa necessidade. Os métodos não lineares empregados neste trabalho são do tipo "Black Box" sendo difícies de explicar por vezes e o Shaley Value sendo um método que independente do modelo torna possível padronizar metodologia de explicabilidade entre diferentes algoritmos.</p>
+<p>Além disso, é crucial identificar como a retirada e inserção de variáveis nos modelos afetam a performance do modelos não lineares que são de fato usados para as projeções mensais na GEASE. Nesse sentido, o método de explicabilidade de inteligência artificial independete de modelo chamado Shapley Value atende essa necessidade. Os métodos não lineares empregados neste trabalho são do tipo "Black Box" sendo difícies de explicar por vezes e o Shapley Value sendo um método que independente do modelo torna possível padronizar metodologia de explicabilidade entre diferentes algoritmos.</p>
 </div>
 </div>
 </div>
@@ -7563,48 +7563,12 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Metodologia">Metodologia<a class="anchor-link" href="#Metodologia">¶</a></h2><p>Nosso trabalho divide-se em duas partes grandes partes, a primeira implementa a método de seleção de variáveis por meio do Rercursive Feature Elimination (RFE) com o ElasticNet. A partir de um dataset de 156 variáveis distintas selecionamos as 30 mais cruciais baseado no algoritmo citado. Nessa etapa não há projeção propriamente dita pois somente treinamos o ElasticNet em todo o período da amostra, portanto usando as 162 observações do dataset inicial.</p>
+<h2 id="Metodologia">Metodologia<a class="anchor-link" href="#Metodologia">¶</a></h2><p>Nosso trabalho divide-se em duas grandes partes, a primeira implementa a método de seleção de variáveis por meio do Rercursive Feature Elimination (RFE) com o ElasticNet. A partir de um dataset de 156 variáveis distintas selecionamos as 30 mais cruciais baseado no algoritmo citado. Nessa etapa não há projeção propriamente dita pois somente treinamos o ElasticNet em todo o período da amostra, portanto usando as 162 observações do dataset inicial.</p>
 <p>Selecionadas as variávies na etapa anterior, partimos para segunda etapa que é a projeção propriamente dita. Nela usamos os modelos não-lineares, Adaboost, Gradient Boosting e Random Forest. Com base nas métricas de acurácia (MSE,MAE,RMSE, MPAE e R2), selecionamos o melhor modelo. Nas previsões realizadas por este modelo aplicamos o método Shapley Value para compreender a contribuição das variáveis para a predição propriamente dita.</p>
 <h3 id="Pre-processamento-dos-dados">Pre-processamento dos dados<a class="anchor-link" href="#Pre-processamento-dos-dados">¶</a></h3><p>O conjunto de dados foi dividido em conjuntos de treinamento e teste. O conjunto de treinamento foi formado pelos 80% iniciais da série e o conjunto de teste foi formado pelos 20% finais da série. Os modelos foram construídos usando os dados de treinamento, enquanto o conjunto de testes foi dedicado para a realização das previsões e a avaliação do desempenho dos modelos.</p>
-<h3 id="Treinamento-dos-modelos-e-sele%C3%A7%C3%A3o-dos-hiperpar%C3%A2metros">Treinamento dos modelos e seleção dos hiperparâmetros<a class="anchor-link" href="#Treinamento-dos-modelos-e-sele%C3%A7%C3%A3o-dos-hiperpar%C3%A2metros">¶</a></h3><p>A técnica de validação cruzada para séries temporais (<em>Time Series Split</em>) foi utilizada na etapa de treinamento dos modelos. Esta técnica é uma variação da validação cruzada k-<em>fold</em>, que permite manter a ordem temporal dos dados durante o processo de validação. Neste procedimento, a série é dividida em vários subconjuntos (<em>folds</em>) sequenciais, de modo que cada subconjunto é usado como conjunto de teste uma vez, enquanto os conjuntos anteriores são utilizados como conjuntos de treinamento. Assim, o tamanho do conjunto de treinamento aumenta sequencialmente e o modelo pode ser treinado em quantidades cada vez maiores de dados históricos, permitindo uma avaliação mais precisa das suas capacidades preditivas (PEDREGOSA et al., 2011; AMAT RODRIGO; ESCOBAR ORTIZ, 2023). Os hiperparâmetros dos modelos foram selecionados utilizando <em>Grid Search</em>, ou busca em grade, na validação cruzada <em>Time Series Split</em>. A Tabela 1 mostra os parâmetros a serem selecionados em cada modelo e os valores do <em>Grid Search</em>.</p>
-<p><strong>Tabela 1</strong> - Hiperparâmetros a serem selecionados e os respectivos valores do <em>Grid Search</em> para a validação cruzada.</p>
-<table>
-<thead>
-<tr>
-<th>Hiperparâmetro</th>
-<th>Random Forest</th>
-<th>Adaptive Boosting</th>
-<th>Gradient Boosting</th>
-<th>Extreme Gradient Boosting</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>n_estimator</td>
-<td>50, 100, 150, 200</td>
-<td>50, 100, 150, 200</td>
-<td>50, 100, 150, 200</td>
-<td>50, 100, 150, 200</td>
-</tr>
-<tr>
-<td>max_depth</td>
-<td>3, 5, 10, 15</td>
-<td></td>
-<td>3, 5, 10, 15</td>
-<td>3, 5, 10, 15</td>
-</tr>
-<tr>
-<td>learning_rate</td>
-<td></td>
-<td>0,001; 0,01; 0,1</td>
-<td>0,001; 0,01; 0,1</td>
-<td>0,001; 0,01; 0,1</td>
-</tr>
-</tbody>
-</table>
-<p>Neste trabalho, usamos a validação cruzada para séries temporais com o <em>Grid Search</em> para seleção dos hiperparâmetros e treino e teste dos modelos. O conjunto de validação avançou a cada 5 observações, segundo o parâmetros <code>val_step</code> = 5. Com esta configuração, foi utilizado um total de 5 <em>folds</em>. Por fim, o melhor modelo foi selecionado segundo o erro absoluto médio (MSE), no caso para descobrir os hiperparametros e  Após selecionados os hiperparâmetros, o modelo foi treinado novamente com os hiperparâmetros selecionados no conjunto de treinamento e validação inteiro, com o parâmetro <code>refit</code> = <code>True</code>.</p>
+<h3 id="Treinamento-dos-modelos-e-sele%C3%A7%C3%A3o-dos-hiperpar%C3%A2metros">Treinamento dos modelos e seleção dos hiperparâmetros<a class="anchor-link" href="#Treinamento-dos-modelos-e-sele%C3%A7%C3%A3o-dos-hiperpar%C3%A2metros">¶</a></h3><p>A técnica de validação cruzada para séries temporais (<em>Time Series Split</em>) foi utilizada na etapa de treinamento dos modelos. Esta técnica é uma variação da validação cruzada k-<em>fold</em>, que permite manter a ordem temporal dos dados durante o processo de validação. Neste procedimento, a série é dividida em vários subconjuntos (<em>folds</em>) sequenciais, de modo que cada subconjunto é usado como conjunto de teste uma vez, enquanto os conjuntos anteriores são utilizados como conjuntos de treinamento. Assim, o tamanho do conjunto de treinamento aumenta sequencialmente e o modelo pode ser treinado em quantidades cada vez maiores de dados históricos, permitindo uma avaliação mais precisa das suas capacidades preditivas. Os hiperparâmetros dos modelos foram selecionados utilizando <em>Grid Search</em>, ou busca em grade.</p>
 <h3 id="Previs%C3%A3o">Previsão<a class="anchor-link" href="#Previs%C3%A3o">¶</a></h3><p>A etapa de previsão adotou uma estratégia conhecida como previsão recursiva. Neste procedimento, cada nova previsão se baseia na previsão anterior. Em outras palavras, para a previsão um passo adiante, toda a série é usada como entrada dos modelos. Em seguida, para prever dois passos adiante, o valor previsto um passo a diante também é usado como entrada nos modelos, juntamente com os valores da série. Isso segue até que todas as previsões sejam realizadas. Neste estudo, esta abordagem foi utilizada para realizar previsões no conjunto de teste.</p>
-<h3 id="Avalia%C3%A7%C3%A3o-do-desempenho">Avaliação do desempenho<a class="anchor-link" href="#Avalia%C3%A7%C3%A3o-do-desempenho">¶</a></h3><p>Neste trabalho, foi adotado um conjunto de medidas de precisão das previsões, comumente utilizadas para séries temporais, cada uma avaliando diferentes aspectos do erro cometido pelos modelos de previsão (HYNDMAN; ATHANASOPOULOS, 2018). A avaliação do desempenho dos modelos baseados em árvores de decisão utilizou as seguintes medidas de erro: Erro Quadrático Médio (MSE), Raiz do Erro Quadrático Médio (RMSE), Erro Absoluto Médio (MAE) e Erro Percentual Absoluto Médio (MAPE).</p>
+<h3 id="Avalia%C3%A7%C3%A3o-do-desempenho">Avaliação do desempenho<a class="anchor-link" href="#Avalia%C3%A7%C3%A3o-do-desempenho">¶</a></h3><p>Neste trabalho, foi adotado um conjunto de medidas de precisão das previsões, comumente utilizadas para séries temporais, cada uma avaliando diferentes aspectos do erro cometido pelos modelos de previsão. A avaliação do desempenho dos modelos baseados em árvores de decisão utilizou as seguintes medidas de erro: Erro Quadrático Médio (MSE), Raiz do Erro Quadrático Médio (RMSE), Erro Absoluto Médio (MAE) e Erro Percentual Absoluto Médio (MAPE) e R2.</p>
 </div>
 </div>
 </div>
@@ -7626,7 +7590,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Essa parte do trabalho é dedicada a realizar a seleção de variáveis entre o conjunto total possível. Esse conjunto compreende 156 diferentes variáveis das quais selecionamos as 30 mais frequentes e significantes com base no proceso de RFE mais ElasticNet. Abaixo inciamos explicando os conceitos usados nesta etapa.</p>
+<p>Essa parte do trabalho é dedicada a realizar a seleção de variáveis entre o conjunto total de 156 diferentes variáveis. A partir dela extraimos as 30 variáveis mais frequentes e significantes com base no proceso de RFE mais ElasticNet. Abaixo é explicando os conceitos usados nesta etapa.</p>
 </div>
 </div>
 </div>
@@ -8628,7 +8592,7 @@ Name: var_ipca_bacen, dtype: float64
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Discuss%C3%A3o-dos-resutados-da-etapa-1---Vari%C3%A1veis-Selecionas-usando-o-m%C3%A9todo-RFE">Discussão dos resutados da etapa 1 - Variáveis Selecionas usando o método RFE<a class="anchor-link" href="#Discuss%C3%A3o-dos-resutados-da-etapa-1---Vari%C3%A1veis-Selecionas-usando-o-m%C3%A9todo-RFE">¶</a></h3>
+<h3 id="Discuss%C3%A3o-dos-resutados-da-primeira-etapa---Vari%C3%A1veis-Selecionas-usando-o-m%C3%A9todo-RFE">Discussão dos resutados da primeira etapa - Variáveis Selecionas usando o método RFE<a class="anchor-link" href="#Discuss%C3%A3o-dos-resutados-da-primeira-etapa---Vari%C3%A1veis-Selecionas-usando-o-m%C3%A9todo-RFE">¶</a></h3>
 </div>
 </div>
 </div>
@@ -8663,7 +8627,7 @@ Name: var_ipca_bacen, dtype: float64
 <p>A segunda variável mais frequente, aparecendo em 59,6% de todas as amostras, é uma variável relacionada ao Focus (’ipca_focus’) para o nosso alvo é expectativa mediana do mercado para cada mês. Dado que esta variável é uma proxy do mercado para a inflação futura, não é surpreendente que seja altamente relevante devido à sua ocorrência frequente. Porém, de acordo com nossa abordagem, essa variável não possui o segundo maior coeficiente médio; esta posição é do IPC Fipe (’var_ipc_fipe’), outro índice de preços ao consumidor divulgado anteriormente à nossa meta (IPCA). Ao considerar o nível do coeficiente, ‘ipca_focus’ tem o quarto valor mais alto, não muito longe do segundo e terceiro valores mais altos.</p>
 <p>Quanto as variáveis relacionadas à atividade econômica há alguns detaques a mencionar, a taxa de desemprego possui três defasagens diferentes selecionadas pelo nosso método, mas a primeira e a quarta defasagens são as mais frequentes e possuem coeficientes médios em direções diferentes. Enquanto o ’PNAD_DESOC_2_diff_lag1’ apresenta coeficiente médio positivo, o ’PNAD_DESOC_2_diff_lag4’ apresenta valor negativo. Segundo a literatura que relaciona inflação e mercado de trabalho (taxa de desemprego na curva de Phillips, por exemplo), eles possuem uma relação  inversa. Em teoria, deveríamos ver apenas coeficientes negativos para esta variável, mas isso não aconteceu na nossa abordagem para a taxa de desemprego com uma defasagem (’PNAD_DESOC_2_diff_lag1’); as demais defasagens apresentam coeficiente negativo alinhado com a literatura.</p>
 <p>Ainda relativamente ao sinal dos coeficientes das variáveis, a maioria é positiva, conforme ilustrado no gráfico. Contudo, onze variáveis ​​apresentaram coeficiente negativos, sugerindo que aumentar uma e manter todas as outras estáveis ​​reduz o nível de inflação ao consumidor. Dezenove variáveis têm um coeficiente positivo, sugerindo que à medida que o valor da variável aumenta, a variável alvo também aumenta. Em outras palavras, os coeficientes positivos tendem a impactar diretamente os níveis de inflação. Por exemplo, a variável "ipca_monitor_0" possui um coeficiente médio de aproximadamente 0,10, indicando uma relação positiva com a variável alvo. Se todas as outras variáveis permanecerem constantes, um aumento nesta variável está associado a um aumento no valor previsto. Algumas das variáveis com valor de coeficiente positivo estão relacionadas à atividade econômica ou ao mercado de trabalho em diferentes defasagens, por exemplo, consumo de energia e Folha de Pagamento Caged. Um aumento nessas variáveis ​​pode indicar aumento da demanda agregada na economia brasileira, potencialmente levando ao aumento da inflação interna.</p>
-<p>É importante dizer que o IPCA com diferente lags foram identificadas como preditores significativos em testes anteriores. Esta análise preliminar indica que a incorporação de valores defasados ​​do IPCA poderia melhorar a precisão das previsões de inflação. No entanto, para o estágio atual do nosso estudo, optamos por excluir temporariamente essas variáveis defasadas. O lag do IPCA serão reintegrados em fases subsequentes, especialmente à medida que exploramos a previsão através de modelos não lineares, onde um conjunto mais amplo de metas desfasadas pode revelar-se benéfico.</p>
+<p>É importante dizer que o IPCA com diferente lags foram identificadas como preditores significativos em testes anteriores. No entanto, para essa primeira etapa do trabalho essas variávies defadas foram excluídas. O lag do IPCA são reintegrados na segunda etapa desse trabalho onde os modelos não-lineares são usados e essas variáveis defesadas são relevantes.</p>
 <p>Há um resultado curioso relacionado ao sinal do coeficiente cambial brasileiro. Esta variável sem defasagem ('BRL_USD_log_1_diff') e com três defasagens ('BRL_USD_log_1_diff_lag3') possui coeficiente negativo, mas a mesma variável com quatro defasagens ('BRL_USD_log_1_diff_lag4') possui coeficiente positivo. Esta situação sugere que a depreciação/apreciação da moeda nacional se correlaciona com taxas de inflação mais altas/mais baixas no Brasil com dinâmicas diferentes quando a variável  está em diferentes defasagens ou é contemporânea à meta. Um coeficiente positivo reforça uma correlação bem conhecida na literatura econômica que pode ser atribuída à sua influência direta nos custos dos bens importados e serviços. Esta situação realça a importância das taxas de câmbio na condução da inflação interna e na promoção de medidas proativas de política monetária.</p>
 </div>
 </div>
@@ -9833,9 +9797,33 @@ Name: var_ipca_bacen, dtype: float64
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Continuando nossa análise da importância global, podemos visualizar os valores SHAP atribuídos a cada variáveis em todas as amostras no gráfico acima, oferecendo insights sobre o papel dos variáveis mais cruciais na previsão. Transformando a importância local em uma perspectiva global, o gráfico oferece um resumo detalhado de como as principais variáveis em um conjunto de dados influenciam as previsões do modelo, mesclando os conceitos de importância das variáveis e seus efeitos. Neste gráfico, cada ponto representa o valor Shapley de uma variável para um momento específico da amostra específica, onde a função do variáveis é indicada no eixo y e seu valor Shapley no eixo x. O gradiente de cor dos pontos, de valores baixos (roxo) a valores altos (amarelo), ilustra o impacto do variáveis.</p>
-<p>Os pontos de sobreposição são ligeiramente espalhados verticalmente para revelar a distribuição dos valores Shapley para cada variáveis, organizados por sua significância. Este gráfico reforça que 'ipca_monitor_0' tem o papel mais crucial, em linha com o gráfico anterior de importância global e um spread significativo relacionado ao impacto na produção com seu Shapely Value variando de -0,7 a + 0,7. O segundo mais importante é que 'ipca_focus' tem um efeito menor com valores de Shapley variando de -0,2 a 0,2, e também, há uma relação direta entre a importância do variáveis e o valor de Shapley. As outras variáveis ​​têm valores Shapely próximos de zero, o que significa que têm pouco impacto na saída.</p>
-<p>O gráfico Beeswarm fornece insights sobre a conexão entre o valor do variáveis e seu efeito em cada ponto de previsão. No entanto, precisamos examinar os gráficos de dependência SHAP para compreender a relação precisamente para um variáveis singular e seu valor SHAP. Um gráfico de dependência é uma ferramenta de visualização que exibe a relação entre o valor SHAP de um variáveis e seu valor de variáveis correspondente. Este gráfico contém um conjunto de pontos onde cada ponto representa uma observação no conjunto de dados. O eixo horizontal do gráfico mostra o valor real do variáveis, enquanto o eixo vertical representa a contribuição do variáveis para o valor SHAP. O gráfico de dependência é instrumental se o variáveis tiver uma relação não linear com a variável alvo. Conforme ilustrado na Figura \ref{fig:dependece_plot} para 'ipca_monitor_0' (a) e 'ipca_focus' (b), respectivamente, o gráfico de dependência mostra uma relação direta entre os valores da variável com seus valores SHAP. Esta relação não é tão evidente para a segunda variável como para a primeira; existe uma dependência linear para 'ipca_focus' mas com alguma concentração entre -0,5 e +0,5 para o seu valor SHAP e entre 0,4 e 0,8 para os seus valores.</p>
+<p>Continuando nossa análise da importância global, podemos visualizar os valores SHAP atribuídos a cada variáveis em todas as amostras no gráfico acima, oferecendo insights sobre o papel dos variáveis mais cruciais na previsão. Transformando a importância local em uma perspectiva global, o gráfico oferece um resumo detalhado de como as principais variáveis em um conjunto de dados influenciam as previsões do modelo, mesclando os conceitos de importância das variáveis e seus efeitos. Neste gráfico, cada ponto representa o valor Shapley de uma variável para um momento específico da amostra, onde a função das variáveis é indicada no eixo y e seu valor Shapley no eixo x. O gradiente de cor dos pontos, de valores baixos (roxo) a valores altos (amarelo), ilustra o impacto do variáveis.</p>
+<p>Os pontos de sobreposição são ligeiramente espalhados verticalmente para revelar a distribuição dos valores Shapley para cada variáveis, organizados por sua significância. Este gráfico reforça que 'ipca_monitor_0' tem o papel mais crucial, em linha com o gráfico anterior de importância global e um spread significativo relacionado ao impacto na produção com seu Shapely Value variando de -0,7 a + 0,7. O segundo mais importante é que 'ipca_focus' que tem um efeito menor com valores de Shapley variando de -0,2 a 0,2, e também, há uma relação direta entre a importância do variáveis e o valor de Shapley. As outras variáveis ​​têm valores Shapely próximos de zero, o que significa que têm pouca contribuição para os valores preditos.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="Conclus%C3%A3o">Conclusão<a class="anchor-link" href="#Conclus%C3%A3o">¶</a></h1>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Este material teve como objetivo evidenciar o novo método de seleção e explicabilidade da relevância de variáveis nos modelos de curto prazo do IPCA utilizados pela GEASE. Empregou-se um método de seleção de variáveis baseado na técnica de encolhimento para isolar os preditores mais críticos. Além disso, também foi aplicado método de explicabilidade de inteligência artificial independete de modelo (XAI) conhecido como Shapley Value para nos fornecer insights sobre as previsões do modelo de machine learning, muitas vezes considerados como "caixas pretas".</p>
+<p>Nossa jornada começou com a coleta de dados do IPCA entre agosto de 2010 e janeiro de 2024 e a criação de um conjunto de dados composto por 156 variáveis ​​como preditores com base na revisão da literatura, garantindo uma base rica e variada para análise. O núcleo do nosso estudo foi aplicar essas variáveis refinadas aos modelos de previsão não linear, incluindo Random Forest, AdaBoost, Extreme Gradient Boosting (XGBoost) e Gradient Boosting. Esses modelos foram escolhidos especificamente por sua proficiência na captura de interações complexas e não lineares, muitas vezes ignoradas pelos modelos lineares. Utilizando uma avaliação abrangente por múltiplas métricas de precisão o Gradient Boosting emergiu como o modelo mais eficaz.</p>
+<p>A interpretabilidade do Gradient Boosting foi aprimorada com a aplicação do Shapley Value, um método emergente de Inteligência Artificial Explicável Independete do Modelo (XAI). Este método esclarece a contribuição de cada variável para os resultados da previsão, abordando preocupações sobre a interpretabilidade dos modelos de ML. Ele fornece informações valiosas sobre a dinâmica das interações entre as variáveis. O uso de métodos XAI ajuda a refletir sobre a teoria e suas aplicações empíricas para previsão. Compreender o raciocínio por trás dos resultados de modelos específicos aumenta a utilidade dos resultados.</p>
+<p>Utilizando insights de valores SHAP e seleção de variáveis por meio do RFE, este estudo destaca o papel crucial do uso de proxies do IPCA como 'ipca_monitor_0' (série criada com base nos dados do Monitor da inflação) e 'ipca_focus' (dados do relatório Focus) nos resultados de modelos ML. Embora as variáveis ​​relacionadas com a atividade econômica, o mercado de trabalho e os mercados financeiros influenciem o desempenho do modelo, o seu impacto não é tão significativo como os dados do Focus e do Monitor da inflação. Isto tem implicações importantes para o desenvolvimento da estratégia de modelagem e reforça os benefícios da contratação do serviço do IBRE/FGv que tem a maior significância para os modelos lineares e não-lineares empregados pela GEASE.</p>
 </div>
 </div>
 </div>
